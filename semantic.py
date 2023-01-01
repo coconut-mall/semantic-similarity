@@ -1,7 +1,7 @@
 # Import module and load language model
 import spacy
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_md")
 
 # Extract 1
 print("//Extract 1//")
@@ -48,10 +48,21 @@ relative sophistication of the language model to pick up more abstract
 relationships between words.
 """
 
+# My own three word example
+word1 = nlp("cat")
+word2 = nlp("car")
+word3 = nlp("train")
+
+print(word1.similarity(word2))
+print(word3.similarity(word2))
+print(word3.similarity(word1))
+
+# Model recognises that car and train are most similar because they are modes of transport
+# Not just that car and cat are similar words
+
 """
-With the simpler language model the relationship between monkey
-and banana is weaker. Cat also now has a much higher similarity to
-apple which doesn't make much sense. The similarity between the sentences
-also gives completely different results. I think these aspects show that 
-the model is much less sophisticated.
+When the language model changes to the less sophisticated one then the similarity indexes drop
+compared to the more complicated model which I assume means that the program is having a harder time
+making abstract connections between strings.
+The less sophisticated model also seems to run faster than the other model.
 """
